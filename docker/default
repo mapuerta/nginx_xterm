@@ -1,0 +1,21 @@
+server {
+    listen 80;
+
+
+location /terminal {
+  internal
+  set_by_lua $code '
+    local token = ngx.var.arg_access_token
+    if token == os.getenv("SECRET_TOKEN") then
+      return "200"
+    else
+       return "401"
+    end
+   ';
+   echo "api_key" $api_key;
+   if ($code = "401") {
+       return 401; }
+   proxy_pass http://0.0.0.0:3000/;
+    }
+}
+ 
