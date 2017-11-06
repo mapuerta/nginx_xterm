@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM vauxoo/docker-ubuntu-base:16.04
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends git nginx-extras nodejs npm && \
