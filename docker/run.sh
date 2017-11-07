@@ -2,4 +2,4 @@
 
 /etc/init.d/nginx start
 
-cd /opt/xterm && npm start
+/etc/init.d/shellinabox start
