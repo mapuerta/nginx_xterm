@@ -1,8 +1,9 @@
 server {
     listen 80;
-
+    server_name localhost;
 
 location /terminal {
+    rewrite ^/terminal/(.*)$ /$1? break;
     set_by_lua $code '
         local token = ngx.var.arg_access_token
         local secret_token = os.getenv("SECRET_TOKEN") or false
