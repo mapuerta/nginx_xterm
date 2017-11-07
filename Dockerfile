@@ -4,7 +4,7 @@ ENV PASSWORD=shellmanager
 ENV SHELLUSER=shellmanager
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends nginx-extras shellinaboxd && \
+    apt-get install -y --no-install-recommends nginx-extras shellinabox && \
     mkdir /etc/nginx/http.conf.d && \
     sed -i "s%http {%include /etc/nginx/http.conf.d/*.conf%g" -i /etc/nginx/nginx.conf
 
